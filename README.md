@@ -9,6 +9,20 @@ I wanted something I could spin up on any device (that has docker installed) and
 
 With this docker image, once you have your settings configured, you just fire it off and let it run. Configuration is a simple `docker-compose.yaml` and a `storage` folder containing your API key from Oracle and SSH public key to use with the instance. Following the usage instructions below will guide you through the entire process.
 
+The simple loop is:
+1. Check if there's an instance already created with the name configured
+2. If not, try to create the instance using the configured settings (in each availability domain as well)
+3. If the instance does exist, the container exits
+
+Since the container is sleeping most of the time, it uses hardly any resources (no cpu usage while sleeping, idles around ~5MB memory usage, spikes to <70MB every 15s).
+
+## Images
+The docker images can be pulled from:
+- https://hub.docker.com/r/overlydev/oracle-nabber
+- https://github.com/OverlyDev/oracle-nabber/pkgs/container/oracle-nabber
+
+Built for both `linux/amd64` and `linux/arm64`. More architectures could be added in the future if there is demand.
+
 ## Usage
 1. Make a directory called storage in the same directory as the docker-compose.yaml
     - This will be mounted into the container and allows for passing in the various files
