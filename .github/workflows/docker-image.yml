@@ -1,23 +1,8 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches:
-      - master
-    tags:
-      - '*'
-    paths:
-      - docker/*
-      - scripts/*
-  
-  pull_request:
-    types:
-      - closed
-    branches:
-      - master
-    paths:
-      docker/*
-      scripts/*
+  release:
+    types: [published]
   
   workflow_dispatch:
 
