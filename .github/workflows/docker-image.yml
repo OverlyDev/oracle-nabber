@@ -4,6 +4,13 @@ on:
   release:
     types: [published]
   
+  push:
+    branches:
+      - master
+    paths:
+      - docker/*
+      - scripts/*
+  
   workflow_dispatch:
 
 jobs:
