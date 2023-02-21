@@ -20,8 +20,8 @@ on:
   workflow_dispatch:
 
 env:
-  GH_REPO: ghcr.io/overlydev/oracle-nabber
-  DOCKER_REPO: overlydev/oracle-nabber
+  GH_REPO_PATH: ghcr.io/overlydev/oracle-nabber
+  DOCKER_REPO_PATH: overlydev/oracle-nabber
 
 jobs:
   build:
@@ -52,8 +52,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ GH_REPO }}
-            ${{ DOCKER_REPO }}
+            ${{ GH_REPO_PATH }}
+            ${{ DOCKER_REPO_PATH }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
