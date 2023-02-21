@@ -1,0 +1,6 @@
+**/*.env
+**/*.pem
+**/*.pub
+docker/_context
+docker/test
+docker/storage

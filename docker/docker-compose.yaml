@@ -1,0 +1,25 @@
+services:
+  nabber:
+    image: overlydev/oracle-nabber
+    restart: "no"
+    volumes:
+      - ./storage:/storage
+    user: 1000:1000
+    environment:
+      - HELPER=
+      - USER_OCID=
+      - FINGERPRINT=
+      - PRIVATE_KEY_FILE=
+      - TENANCY_OCID=
+      - REGION_NAME=
+      - AVAIL_DOMAIN_1=
+      - AVAIL_DOMAIN_2=
+      - AVAIL_DOMAIN_3=
+      - INSTANCE_NAME=
+      - SHAPE=
+      - NETWORK_ID=
+      - IMAGE_ID=
+      - CPU=
+      - RAM=
+      - SSH_PUB_FILE=
+    
