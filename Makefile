@@ -1,4 +1,4 @@
-IMAGE := overlydev/oracle-nabber
+IMAGE := overlydev/oracle-nabber:test
 CONTEXT := $(shell pwd)/docker/_context
 TEST_DIR := $(shell pwd)/docker/test
 STORAGE_DIR := $(shell pwd)/docker/storage
@@ -7,7 +7,7 @@ build:
 	mkdir -p $(CONTEXT)
 	cp docker/Dockerfile $(CONTEXT)/.
 	cp scripts/*.sh $(CONTEXT)/.
-	cd docker/_context; DOCKER_BUILDKIT=0 docker build -t $(IMAGE) -f Dockerfile .
+	cd docker/_context; docker build -t $(IMAGE) -f Dockerfile .
 
 test: build
 	mkdir -p $(TEST_DIR)
@@ -29,5 +29,6 @@ clean: down
 	rm -rf $(CONTEXT) $(TEST_DIR) $(STORAGE_DIR)
 	yes | docker container prune
 	yes | docker image prune
+	yes | docker rmi $(IMAGE)
 
 .PHONY: build test up down clean
