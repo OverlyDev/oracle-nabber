@@ -46,7 +46,7 @@ create_instance() {
         fi
         
         echo "Attempting to create instance (${INSTANCE_NAME}) in ${domains[$i]}"
-        oci --config-file ./config \
+        data=$(oci --config-file ./config \
             compute instance launch \
             --availability-domain "${domains[$i]}" \
             --compartment-id "${TENANCY_OCID}" \
@@ -60,7 +60,9 @@ create_instance() {
             --instance-options "file://$(pwd)/instanceOptions.json" \
             --shape-config "file://$(pwd)/shapeConfig.json" \
             --ssh-authorized-keys-file "${SSH_PUB_FILE}" \
-            --no-retry
+            --no-retry 2>&1)
+        echo "Result:"
+        echo "${data}" | sed -n '/"code"\|"message"\|"status"\|"timestamp"/Ip'
     done
 }
 
