@@ -22,4 +22,5 @@ services:
       - CPU=
       - RAM=
       - SSH_PUB_FILE=
+      - SLEEP_TIME
     

@@ -20,8 +20,13 @@ fi
 
 # Simple sleep with message
 sleeper() {
-    printf "\nSleeping 15s\n\n"
-    sleep 20
+    if [ -n "${SLEEP_TIME}" ]; then
+        sleep_time="${SLEEP_TIME}"
+    else
+        sleep_time=20
+    fi
+    printf "\nSleeping %ds\n\n" "$sleep_time"
+    sleep "$sleep_time"
 }
 
 # Function to check the current instances to see if the target is already created
