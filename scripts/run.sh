@@ -21,7 +21,7 @@ fi
 # Simple sleep with message
 sleeper() {
     printf "\nSleeping 15s\n\n"
-    sleep 15
+    sleep 20
 }
 
 # Function to check the current instances to see if the target is already created
