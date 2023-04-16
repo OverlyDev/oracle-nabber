@@ -1,7 +1,7 @@
 # Oracle Nabber
 
 ## About
-Inspired by: https://archive.ph/OjSqw
+Inspired by: https://github.com/hitrov/oci-arm-host-capacity
 
 Basically, availability of the Free Tier ARM instances from Oracle is pretty slim. There's a variety of scripts and other automated tools to aid a user in obtaining one of these instances.
 
