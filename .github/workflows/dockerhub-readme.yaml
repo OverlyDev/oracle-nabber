@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - README.md
-      - .github/workflows/dockerhub-description.yml
+      - .github/workflows/dockerhub-readme.yml
   
   workflow_dispatch:
 
